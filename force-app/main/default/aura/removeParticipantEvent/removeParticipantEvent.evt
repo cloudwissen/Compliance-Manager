@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="App level event to notify removal of participant from training course.">
+    <aura:attribute name="scope" type="Object" description="Attribute used to define the scope (recordId/sobjecttype)." />
+    <aura:attribute name="userId" type="Id" description="Id of the participant to remove." />
+</aura:event>

@@ -1,0 +1,12 @@
+Dear {!Policy_Notification__c.OwnerFullName},
+
+You have been assigned a policy to review 
+
+{!Policy_Notification__c.Transient_Message__c}
+
+Click following link to access the policy Notification.
+
+{!Policy_Notification__c.Link}
+
+
+Thanks.

@@ -1,0 +1,55 @@
+<aura:component controller="PolicyDistributionController" implements="flexipage:availableForRecordHome,force:hasRecordId" extends="c:selectSObjectRecords" access="global">
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="showCustomMessage" type="Boolean" description="if true, it lets the user to enter custom message when sending the email" default="{!false}" access="global"/>
+    <aura:attribute name="overlayPanel" type="Aura.Component[]" description="Instance of an overlay panel"  />
+    <!-- ATTRIBUTES -->
+
+    <!-- PRIVATE ATTRIBUTES -->
+    <aura:attribute name="_transientMessageFieldLabel" type="String" description="Transient message field label" access="private" />
+    <aura:attribute name="_message" type="String" description="Custom message" access="private" />
+    <aura:attribute name="_policy" type="sObject" description="Policy record" access="private" />
+    <!-- PRIVATE ATTRIBUTES -->
+
+    <!-- AURA HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.fetchPolicyInfo}" />
+    <aura:handler event="c:removeNotifiedUserEvent" action="{!c.handleRemoveNotifiedUserEvent}" />
+    <!-- AURA HANDLERS -->
+
+    <!-- REGISTER EVENT -->
+    <aura:registerEvent name="policyDistributionEvent" type="c:policyDistributionEvent"/> 
+    <!-- REGISTER EVENT -->
+
+    <!-- COMPONENT BODY -->
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <aura:set attribute="title">
+        <aura:if isTrue="{!not(empty(v._policy))}">
+            <lightning:layout class="slds-section__title slds-section__title-action">
+                <lightning:layoutItem size="9">
+                    <span class="slds-truncate">
+                        {!v._policy.Name}
+                    </span>
+                </lightning:layoutItem>
+                <aura:if isTrue="{!not(empty(v._policy.XLComp__Policy_Versions__r))}" >
+                    <lightning:layoutItem size="3" class="slds-text-align_right">
+                        <span class="slds-badge slds-badge_inverse">
+                            {!format($Label.c.Current_Policy_Distribution_Version, v._policy.XLComp__Policy_Versions__r.records[0].XLComp__Version__c)}
+                        </span>
+                    </lightning:layoutItem>
+                </aura:if>
+            </lightning:layout>
+        </aura:if>
+    </aura:set>
+    
+    <!-- SEND BUTTON -->
+    <aura:if isTrue="{!not(empty(v.recordsList))}" >
+        <lightning:layout class="slds-p-top_small" horizontalAlign="end" >
+            <lightning:layoutItem >
+                <lightning:button variant="brand" label="{!$Label.c.Send}" onclick="{!v.showCustomMessage ? c.handleShowModal : c.sendPolicy}" />
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
+    <!-- SEND BUTTON -->
+    <!-- COMPONENT BODY -->
+</aura:component>

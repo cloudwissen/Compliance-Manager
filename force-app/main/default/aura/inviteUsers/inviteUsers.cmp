@@ -1,0 +1,22 @@
+<aura:component controller="InviteUsersController" implements="force:hasRecordId,flexipage:availableForRecordHome" extends="c:selectSObjectRecords" access="global">
+
+        <!-- AURA HANDLERS -->
+        <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+        <aura:handler event="c:removeParticipantEvent" action="{!c.handleRemoveParticipantEvent}" />
+        <!-- AURA HANDLERS -->
+
+        <!-- REGISTER EVENT -->
+        <aura:registerEvent name="addParticipantEvent" type="c:addParticipantEvent"/>
+        <!-- REGISTER EVENT -->
+    
+        <!-- COMPONENT BODY -->
+    	<lightning:spinner aura:id="spinner" variant="brand" class="slds-hide" />
+        <aura:if isTrue="{!not(empty(v.recordsList))}" >
+            <lightning:layout class="slds-p-top_small" horizontalAlign="end" >
+                <lightning:layoutItem >
+                    <lightning:button variant="brand" label="{!$Label.c.Invite}" onclick="{!c.addParticipants}" />
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:if>
+        <!-- COMPONENT BODY -->
+    </aura:component>

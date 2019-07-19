@@ -1,0 +1,73 @@
+<aura:component controller="SelectSObjectRecordsController" abstract="true" extensible="true" >
+	
+	<!-- ATTRIBUTES -->
+    <aura:attribute name="sObjectName" type="String" description="default sobject name." default="user" />
+    <aura:attribute name="recordsList" type="List" description="List of selected records for all the sobject types." />
+    <aura:attribute name="sObjectsList" type="List" description="List of sObject info." />
+    <aura:attribute name="recordsMap" type="Map" description="Map contains list of sobject records for each sobject type." />
+    <aura:attribute name="title" type="Aura.Component[]" description="The title can include text or another component, and is displayed in the header." />
+    <aura:attribute name="errorMessages" type="List" description="list of error messages or warnings to be displayed" />
+    <aura:attribute name="excludeIds" type="List" description="List of record ids to exclude from search." />
+    <!-- ATTRIBUTES -->
+
+    <!-- INTERNAL ATTRIBUTES -->
+    <aura:attribute name="_selectedRecords" type="List" description="List of selected records for an sobject type." default="[]" access="private" />
+    <aura:attribute name="_sObjectInfo" type="Object" description="Current selected sobject" access="private" />
+    <!-- INTERNAL ATTRIBUTES -->
+
+    <!-- AURA HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.recordsList}" action="{!c.handleRecordsListChange}" />
+    <aura:handler name="actionEvent" event="XLC:actionEvent" action="{!c.handleActionEvent}" />
+    <!-- AURA HANDLERS -->
+
+    <!-- COMPONENT BODY -->
+    <div>
+        <aura:if isTrue="{!not(empty(v.title))}" >
+            {!v.title}
+        </aura:if>
+    </div>
+    
+    <!-- Error and Warning message handling -->
+    <aura:if isTrue="{!!empty(v.errorMessages)}">
+        <lightning:layout class="slds-align_absolute-center slds-box slds-hide">
+                <lightning:icon iconName="utility:warning" size="x-small" variant="warning" class="slds-p-around_x-small" />
+                <aura:iteration items="{!v.errorMessages}" var="errorMessage">
+                    <ui:outputText value="{!errorMessage}" class="slds-p-around_x-small" />
+                </aura:iteration>
+        </lightning:layout>
+    </aura:if>
+    <!-- Error and Warning message handling -->
+
+    <!-- SOBJECTS LIST -->
+    <lightning:select class="slds-p-bottom_medium" aura:id="select" name="select" label="{!$Label.c.Send_to}" onchange="{!c.handlesObjectChange}" value="{!v.sObjectName}" >
+        <aura:iteration items="{!v.sObjectsList}" var="sObject">
+            <option value="{!sObject.name}" text="{!sObject.label}" selected="{!sObject.name == v.sObjectName}" />
+        </aura:iteration>
+    </lightning:select> 
+    <!-- SOBJECTS LIST -->
+
+    <aura:if isTrue="{!not(empty(v.sObjectName))}" >
+        <!-- FILTER COMPONENT -->
+        <XLC:multiSelectLookup sObjectName="{!v.sObjectName}" selectedRecords="{!v._selectedRecords}" excludeIds="{!v.excludeIds}" placeholder="{!format($Label.XLC.Search_Placeholder,v._sObjectInfo.label)}" />
+        <!-- FILTER COMPONENT -->
+    </aura:if>
+
+    <!-- ADD BUTTON -->
+    <aura:if isTrue="{!not(empty(v._selectedRecords))}" >
+        <lightning:layout class="slds-p-top_small" horizontalAlign="end" >
+            <lightning:layoutItem >
+                <lightning:button variant="brand" label="{!$Label.c.Add}" onclick="{!c.addSelectedRecords}" />
+            </lightning:layoutItem>
+        </lightning:layout>
+    </aura:if>
+     <!-- ADD BUTTON -->
+    <!-- SELECTED RECORDS -->
+    <div class="slds-p-top_x-small" >
+       	<aura:iteration items="{!v.sObjectsList}" var="sObjectInfo" >
+       		<c:sObjectRecords recordsMap="{!v.recordsMap}" sObjectInfo="{#sObjectInfo}" />
+       	</aura:iteration>
+    </div>
+    <!-- SELECTED RECORDS -->
+    {!v.body}
+</aura:component>

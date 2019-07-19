@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>GRC Compliance Monitoring Programme Flexipage.</comment>
+        <content>grc__GRC_Compliance_Monitoring_Programme_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>grc__Compliance_Monitoring_Programme__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>GRC Compliance Programme Test Flexipage.</comment>
+        <content>grc__GRC_Programme_Test_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>grc__Compliance_Programme_Test__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>GRC Programme Test Result Flexipage.</comment>
+        <content>grc__GRC_Programme_Test_Result_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>grc__Compliance_Programme_Test_Result__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>GRC Compliance Test Template Flexipage.</comment>
+        <content>grc__GRC_Compliance_Test_Template_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>grc__Compliance_Test_Template__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Compliance Activity Flexipage.</comment>
+        <content>Compliance_Activity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Compliance_Activity__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Gifts And Entertainment Flexipage.</comment>
+        <content>Gifts_And_Entertainment_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Gifts_And_Entertainment__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Policy Flexipage.</comment>
+        <content>Policy_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>grc__Policy__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Training Course Flexipage.</comment>
+        <content>Training_Course_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Training_Course__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Training Module Flexipage.</comment>
+        <content>Training_Module_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Training_Module__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Regulation Flexipage.</comment>
+        <content>Regulation_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Regulation__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Regulatory Log Flexipage.</comment>
+        <content>Regulatory_Log_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Regulatory_Log__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Regulation Regulatory Log Flexipage.</comment>
+        <content>Regulation_Regulatory_Log_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Regulation_Regulatory_Log__c</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#669AD2</headerColor>
+        <logo>App_Compliance_Manager_Icon</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Xactium’s cloud application for effectively managing compliance related activities across your organisation (Lightning Experience)</description>
+    <formFactors>Large</formFactors>
+    <label>Xactium Compliance</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>grc__Compliance_Monitoring_Programme__c</tabs>
+    <tabs>grc__Compliance_Programme_Test__c</tabs>
+    <tabs>grc__Compliance_Test_Template__c</tabs>
+    <tabs>Compliance_Activity__c</tabs>
+    <tabs>Gifts_And_Entertainment__c</tabs>
+    <tabs>Training_Course__c</tabs>
+    <tabs>Regulation__c</tabs>
+    <tabs>Regulatory_Log__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

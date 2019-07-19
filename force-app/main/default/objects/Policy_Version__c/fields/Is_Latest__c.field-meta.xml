@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Latest__c</fullName>
+    <description>Checkbox will be checked if this version matches the Latest Version Number on the Policy.</description>
+    <externalId>false</externalId>
+    <formula>Policy__r.Latest_Version_Number__c == Version__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Latest</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,6 @@
+<design:component label="Manage Attendance" >
+    <design:attribute name="title" label="Header title"/>
+    <sfdc:objects >
+        <sfdc:object >Training_Module__c</sfdc:object>
+    </sfdc:objects>
+</design:component>

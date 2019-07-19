@@ -1,0 +1,6 @@
+<design:component label="Policy Distribution" >
+	<design:attribute name="showCustomMessage" label="Add Custom Message" default="{!false}" description="If true, it lets the user to enter custom message when sending the email." />
+    <sfdc:objects >
+        <sfdc:object >grc__Policy__c</sfdc:object>
+    </sfdc:objects>
+</design:component>

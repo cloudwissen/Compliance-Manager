@@ -1,0 +1,40 @@
+<aura:component controller="InvitedUsersController" implements="force:hasRecordId,flexipage:availableForRecordHome" access="global">
+    
+    <!-- PRIVATE ATTRIBUTES --> 
+    <aura:attribute name="_records" description="List of records queried by controller." type="List" access="private" />
+    <aura:attribute name="_sObjectInfo" description="User Object Info" type="Object" access="private" />
+    <aura:attribute name="_actions" type="List" description="Actions to be displayed, it has to be passed with label, name, disabled, iconName" access="private"/>
+    <!-- PRIVATE ATTRIBUTES -->
+
+    <!-- HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" /> 
+    <aura:handler event="c:addParticipantEvent" action="{!c.fetchInvitedUsers}"/>
+    <aura:handler name="actionEvent" event="XLC:actionEvent" action="{!c.recordAction}"/>
+    <!-- HANDLERS -->
+
+    <!-- REGISTER EVENT -->
+	<aura:registerEvent name="removeParticipantEvent" type="c:removeParticipantEvent"/> 
+	<!-- REGISTER EVENT -->
+
+    <!-- COMPONENT BODY -->
+    <lightning:spinner aura:id="spinner" variant="brand" />
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:card class="invitedUsersCard" >
+        <div class="slds-p-horizontal_small" >
+            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                <lightning:layoutItem size="12">
+                    <!-- TILES -->
+                    <aura:if isTrue="{!and(not(empty(v._records)), not(empty(v._sObjectInfo)))}" >
+                        <XLC:recordTileList recordsList="{!v._records}" sObjectInfo="{!v._sObjectInfo}" actions="{!v._actions}"/>
+                    	<aura:set attribute="else" >
+                        	<div class="slds-text-align_center">{!$Label.XLC.No_Items_To_Display}</div>
+                        </aura:set>
+                    </aura:if>
+                    <!-- TILES -->
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+        
+    </lightning:card>
+    <!-- COMPONENT BODY -->
+</aura:component>

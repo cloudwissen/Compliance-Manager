@@ -1,0 +1,5 @@
+<design:component label="Invited Users">
+    <sfdc:objects>
+        <sfdc:object>Training_Course__c</sfdc:object>
+    </sfdc:objects>
+</design:component>

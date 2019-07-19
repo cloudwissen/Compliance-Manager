@@ -1,0 +1,60 @@
+<aura:component controller="ManageAttendanceController" implements="force:hasRecordId,flexipage:availableForRecordHome" access="global">
+	<!-- PUBLIC ATTRIBUTES --> 
+	<aura:attribute name="title" description="Title of the component." type="String" access="global"/>
+	<!-- PUBLIC ATTRIBUTES --> 
+
+	<!-- PRIVATE ATTRIBUTES --> 
+	<aura:attribute name="_records" description="List of records queried from the apex controller." type="List" access="private" />
+	<aura:attribute name="_columns" description="List of columns object that's used to define the data types." type="List" access="private" />
+	<aura:attribute name="_displayList" description="The array of data to be displayed from the original list." type="List"  access="private" />
+	<aura:attribute name="_selectedIds" description="List of selected ids." type="List" access="private" />
+	<aura:attribute name="_userLabelPlural" description="Plural label of the user object." type="String" access="private" />
+	<aura:attribute name="_rowSelection" description="Identify row selection" type="Boolean" default="{!false}" access="private"/>
+	<aura:attribute name="_tempSelectedIds" description="Temporary List of selected ids." type="List" access="private" />
+	<!-- PRIVATE ATTRIBUTES -->
+
+	<!-- HANDLERS -->
+	<aura:handler name="init" value="{!this}" action="{!c.fetchsObjectRecords}" />
+	<aura:handler name="filterEvent" event="XLC:filterEvent" action="{!c.handleFilterEvent}" />
+	<!-- HANDLERS -->
+
+	<!-- COMPONENT BODY -->
+	<lightning:spinner aura:id="spinner" variant="brand" />
+
+		<lightning:layout class="slds-card" horizontalAlign="center" multipleRows="true" verticalAlign="center">
+			<lightning:layoutItem size="12" flexibility="auto" class="slds-p-around_x-small">
+				<div class="slds-section slds-is-open">
+					<aura:if isTrue="{!not(empty(v.title))}">
+						<h3 class="slds-section__title slds-theme_shade">
+							<span class="slds-truncate slds-p-horizontal_small" title="Section Title">{!v.title}</span>
+						</h3>
+					</aura:if>
+					<div aria-hidden="false" class="slds-section__content">
+						<!-- SEARCH -->
+						<aura:if isTrue="{!not(empty(v._records))}" >
+							<div class="slds-p-bottom_small"> 
+								<XLC:textFilter searchFields="[{label : 'Name', name : 'Name', type : 'STRING'}]" placeholder="{!format($Label.XLC.Search_Placeholder,v._userLabelPlural)}" /> 
+							</div>
+						</aura:if>
+						<!-- SEARCH -->
+						<!-- DATATABLE -->
+						<aura:if isTrue="{!not(empty(v._displayList))}" >
+							<!-- CHECK : ENABLE SORTING -->
+							<lightning:datatable aura:id="dataTable" data="{!v._displayList}" columns="{!v._columns}" keyField="Id" selectedRows="{!v._selectedIds}" onrowselection="{!c.handleOnRowSelection}" />
+							<aura:set attribute="else" >
+								<div class="slds-text-align_center">{!$Label.XLC.No_Items_To_Display}</div>
+							</aura:set>
+						</aura:if>
+						<!-- DATATABLE -->
+					</div>
+				</div>
+			</lightning:layoutItem>
+			<aura:if isTrue="{!v._rowSelection}">
+				<lightning:layoutItem size="12" flexibility="auto" class="slds-p-bottom_small slds-p-right_small slds-text-align_right">
+					<lightning:button variant="brand" label="{!$Label.c.Confirm}" onclick="{!c.setAttendanceOnEvents}" />
+				</lightning:layoutItem>
+			</aura:if>
+		</lightning:layout>
+		
+	<!-- COMPONENT BODY -->
+</aura:component>

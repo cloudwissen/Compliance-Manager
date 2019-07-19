@@ -1,0 +1,1 @@
+<aura:event type="APPLICATION" description="App level event to notify loading of policy detail." />

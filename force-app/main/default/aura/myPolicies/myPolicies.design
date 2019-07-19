@@ -1,0 +1,11 @@
+<design:component label="My Policies" >
+    <design:attribute name="mode" label="Mode" datasource="Read,Unread" default="Read" description="Default display Mode. Accepted values include Read or Unread." />
+    <design:attribute name="limitValue" label="Limit" description="Number of policies to display." min="1" max="50" />
+    <design:attribute name="readPoliciesListView" label="Read Policy List View" Description="Name of the list view used to display read policies." />
+    <design:attribute name="unreadPoliciesListView" label="Unread Policy List View" Description="Name of the list view used to display unread policies." />
+    
+    <sfdc:objects>
+        <sfdc:object>User</sfdc:object>
+    </sfdc:objects>
+    
+</design:component>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Action</fullName>
+        <categories>Column Header</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Header of action column</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>Add</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for add action</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>Attendance_Recorded_Successfully</fullName>
+        <categories>Success Message,ManageAttendance Component</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when users attendance recorded successfully on a training  module</shortDescription>
+        <value>Attendees list updated successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for cancel action</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Confirm</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for confirm action</shortDescription>
+        <value>Confirm</value>
+    </labels>
+    <labels>
+        <fullName>Confirm_Policy_Read</fullName>
+        <categories>Confirmation, Message, MyPolicies</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed to confirm policy was read</shortDescription>
+        <value>I have read and been informed about the content, requirements, and expectations of this policy.</value>
+    </labels>
+    <labels>
+        <fullName>Confirm_Policy_User_Removed</fullName>
+        <categories>Confirmation, Message, PolicyDistributedUsersList</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed to confirm that a user was removed from the distributed users</shortDescription>
+        <value>{0} successfully removed.</value>
+    </labels>
+    <labels>
+        <fullName>Content_Document_Id_Deletion_Error</fullName>
+        <categories>Message,Policy Trigger</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when user tries to remove Content Document Id</shortDescription>
+        <value>Please delete all policy versions to remove Content Document Id</value>
+    </labels>
+    <labels>
+        <fullName>Current_Policy_Distribution_Version</fullName>
+        <categories>Title, Policy Distribution Version, PolicyDistribution Component</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Shows the current policy distribution version on the policy distribution</shortDescription>
+        <value>Version {0}</value>
+    </labels>
+    <labels>
+        <fullName>Delete</fullName>
+        <categories>Close Icon</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for delete action</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Error_Unable_To_Delete_ContentDocument</fullName>
+        <categories>Error, Message, Delete ContentDocument</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when users do not have permission to delete Content Documents.</shortDescription>
+        <value>You do not have permission to delete Content Documents</value>
+    </labels>
+    <labels>
+        <fullName>Error_Unable_To_Update_ContentDocumentId</fullName>
+        <categories>Error, Message, Policy Document Upload</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when a content document id is unable to update the policy reco</shortDescription>
+        <value>Unable to upload the document</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_Content_Document_On_Policy</fullName>
+        <categories>Message, Policy Upload</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when a content document not present in the policy</shortDescription>
+        <value>Associated document is not present in this policy.Please upload a New one</value>
+    </labels>
+    <labels>
+        <fullName>Invite</fullName>
+        <categories>Button, InviteUsers</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for invite action</shortDescription>
+        <value>Invite</value>
+    </labels>
+    <labels>
+        <fullName>Invite_Participants_Error_Message</fullName>
+        <categories>Message, Invite Users</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when invitation on training course is a failure</shortDescription>
+        <value>Failure: {0} participant(s) invitation has failed.</value>
+    </labels>
+    <labels>
+        <fullName>Invite_Participants_Success_Message</fullName>
+        <categories>Message, Invite Users</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when participants added to training course successfully</shortDescription>
+        <value>Invites has been sent to {0} participant(s) successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Invite_Participants_Warning_Message</fullName>
+        <categories>Message, Invite Users</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when some participants are successfully added and some are not</shortDescription>
+        <value>Partially successful: Some of the users have not been invited.</value>
+    </labels>
+    <labels>
+        <fullName>Invite_Users</fullName>
+        <categories>Title, InviteUsers</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title on InviteUsers component</shortDescription>
+        <value>Invite Users</value>
+    </labels>
+    <labels>
+        <fullName>Message_Panel_Header</fullName>
+        <categories>Policy Distribution Component</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for add action</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>My_Read_Policies</fullName>
+        <categories>Title, MyPolicies</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title on MyPolicies component when mode is Read</shortDescription>
+        <value>My Read Policies</value>
+    </labels>
+    <labels>
+        <fullName>My_Unread_Policies</fullName>
+        <categories>Title, MyPolicies</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title on MyPolicies component when mode is Unread</shortDescription>
+        <value>My Unread Policies</value>
+    </labels>
+    <labels>
+        <fullName>No_Attendees_To_Display</fullName>
+        <categories>Message, InvitedUsers</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when no one has been invited to the training course</shortDescription>
+        <value>No one has been invited to this training course.</value>
+    </labels>
+    <labels>
+        <fullName>No_Policy_Documents_To_Display</fullName>
+        <categories>Message, MyPolicies</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when there is no document to display for a policy</shortDescription>
+        <value>No policy document to display.</value>
+    </labels>
+    <labels>
+        <fullName>No_Results_Found</fullName>
+        <categories>Message, Lookup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when there is no results found for a given filter</shortDescription>
+        <value>No results found for {0}</value>
+    </labels>
+    <labels>
+        <fullName>No_Users_To_Distribute</fullName>
+        <categories>Message, InviteUsers</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when there is no users avilable to distributy policy</shortDescription>
+        <value>No users available to distribute the policy.</value>
+    </labels>
+    <labels>
+        <fullName>Notify</fullName>
+        <categories>Button, PolicyDistributedUsersList</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for notify action</shortDescription>
+        <value>Notify</value>
+    </labels>
+    <labels>
+        <fullName>Open_File</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for open file action</shortDescription>
+        <value>Open File</value>
+    </labels>
+    <labels>
+        <fullName>Participants_Already_Invited_Message</fullName>
+        <categories>Message, Invite Users</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when the selected participants have already been invited.</shortDescription>
+        <value>{0} participant(s) have already been invited.</value>
+    </labels>
+    <labels>
+        <fullName>Policy_Already_Distributed_Message</fullName>
+        <categories>Message, Policy Distribution</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when a selected uses has already been notified</shortDescription>
+        <value>All the selected users have already been notified.</value>
+    </labels>
+    <labels>
+        <fullName>Policy_Distribution_Success_Message</fullName>
+        <categories>Message, Policy Distribution</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message display when a policy has been distributed successfully</shortDescription>
+        <value>Policy has been distributed to {0} user(s) successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Policy_Document</fullName>
+        <categories>Title, Policy Upload</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title on Policy Upload Component</shortDescription>
+        <value>Policy Document</value>
+    </labels>
+    <labels>
+        <fullName>Policy_Document_Deletion_Error</fullName>
+        <categories>Message, Content Document Trigger</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when a content document associated to a policy is deleted</shortDescription>
+        <value>Please delete all policy versions to delete policy document.</value>
+    </labels>
+    <labels>
+        <fullName>Policy_Notification_Success_Message</fullName>
+        <categories>Message, PolicyDistributedUsersList</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message displayed when the selected users have been notified.</shortDescription>
+        <value>{0} user(s) have been notified.</value>
+    </labels>
+    <labels>
+        <fullName>Policy_Upload</fullName>
+        <categories>Button, Policy Upload</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for policy upload action</shortDescription>
+        <value>Policy Upload</value>
+    </labels>
+    <labels>
+        <fullName>Policy_Upload_Success_Message</fullName>
+        <categories>Message, Policy Upload</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when a content document uploaded successfully against policy</shortDescription>
+        <value>Policy document uploaded successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Read</fullName>
+        <categories>MenuItem, MyPolicies</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Read</shortDescription>
+        <value>Read</value>
+    </labels>
+    <labels>
+        <fullName>Selected_Recipients</fullName>
+        <categories>Title, Selected Records</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title on Selected Recipients</shortDescription>
+        <value>Selected Recipients</value>
+    </labels>
+    <labels>
+        <fullName>Send</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for send action</shortDescription>
+        <value>Send</value>
+    </labels>
+    <labels>
+        <fullName>Send_Message</fullName>
+        <categories>Title,Policy Distribution</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Modal title when add custom message is enabled</shortDescription>
+        <value>Send Message</value>
+    </labels>
+    <labels>
+        <fullName>Send_to</fullName>
+        <categories>Title,Policy Distribution</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title for the send to select list</shortDescription>
+        <value>Send to</value>
+    </labels>
+    <labels>
+        <fullName>Settings</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for settings action</shortDescription>
+        <value>Settings</value>
+    </labels>
+    <labels>
+        <fullName>Training_Module_Not_Available</fullName>
+        <categories>Message, Invite Users</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when training module is not available</shortDescription>
+        <value>Training module has to be created to enable invite users</value>
+    </labels>
+    <labels>
+        <fullName>Unknown_Error</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message displayed when an unknown error occured</shortDescription>
+        <value>Unknown Error</value>
+    </labels>
+    <labels>
+        <fullName>Unread</fullName>
+        <categories>MenuItem, MyPolicies</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unread</shortDescription>
+        <value>Unread</value>
+    </labels>
+    <labels>
+        <fullName>Update_Policy_As_Read</fullName>
+        <categories>Tooltip, MyPolicies</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tooltip on icon button to update policy as read</shortDescription>
+        <value>Update policy as read</value>
+    </labels>
+    <labels>
+        <fullName>View_All</fullName>
+        <categories>Link</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for view all action</shortDescription>
+        <value>View All</value>
+    </labels>
+</CustomLabels>

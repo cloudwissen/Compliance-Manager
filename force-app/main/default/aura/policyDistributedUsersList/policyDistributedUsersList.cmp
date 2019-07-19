@@ -1,0 +1,47 @@
+<aura:component controller="PolicyDistributedUsersListController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+	
+	<!-- ATTRIBUTES -->
+	<aura:attribute name="fieldSetName" type="String" description="field set name contains list of fields to be displayed." access="global"  />
+	<aura:attribute name="showCustomMessage" type="Boolean" description="if true, it lets the user to enter custom message when sending the email" default="{!false}" access="global"/>
+	<aura:attribute name="overlayPanel" type="Aura.Component[]" description="Instance of an overlay panel"  />
+	<!-- ATTRIBUTES -->
+
+	<!-- INTERNAL ATTRIBUTES -->
+	<aura:attribute name="_data" type="Object" description="The array of data to be displayed" access="private"/>
+	<aura:attribute name="_sortedDirection" type="String" description="Sort direction on data table." default="asc" access="private"/>
+	<aura:attribute name="_sortedBy" type="String" description="Sort by column name." access="private"/>
+	<aura:attribute name="_columns" type="List" description="Array of the columns object that's used to define the data types" access="private"/>
+	<aura:attribute name="_transientMessageFieldLabel" type="String" description="Transient message field label" access="private" />
+	<aura:attribute name="_message" type="String" description="Custom message" access="private" />
+	<aura:attribute name="_selectedRows" type="List" description="List of selected rows in datatable" access="private" />
+	<!-- INTERNAL ATTRIBUTES -->
+
+	<!-- AURA HANDLERS -->
+	<aura:handler name="init" value="{!this}" action="{!c.fetchUsers}" description="Handler for valueInit event fired when the component has been initialised" />
+	<aura:handler event="c:policyDistributionEvent" action="{!c.fetchUsers}"/>
+	<!-- AURA HANDLERS -->
+
+	<!-- REGISTER EVENT -->
+	<aura:registerEvent name="removeNotifiedUserEvent" type="c:removeNotifiedUserEvent"/> 
+	<!-- REGISTER EVENT -->
+
+	<!-- COMPONENT BODY -->
+	<lightning:overlayLibrary aura:id="overlayLib"/>
+	<aura:if isTrue="{!not(empty(v._data))}" >
+		<lightning:datatable aura:id="distributionTable" data="{!v._data}" columns="{!v._columns}" keyField="Id" onsort="{!c.updateColumnSorting}" sortedBy="{!v._sortedBy}" 
+				sortedDirection="{!v._sortedDirection}" selectedRows="{!v._selectedRows}" onrowselection="{!c.handleOnRowSelection}" onrowaction="{!c.handleRowAction}" />
+	</aura:if>
+	<aura:if isTrue="{!empty(v._data)}" >
+  		<div class="slds-text-align_center">{!$Label.XLC.No_Items_To_Display}</div>
+	</aura:if>
+	<!-- NOTIFY BUTTON -->
+	<aura:if isTrue="{!not(empty(v._data))}" >
+		<lightning:layout class="slds-p-top_small" horizontalAlign="end" >
+			<lightning:layoutItem >
+				<lightning:button variant="brand" label="{!$Label.c.Notify}" disabled="{!empty(v._selectedRows)}" onclick="{!v.showCustomMessage ? c.handleShowModal : c.notifyUsers}" />
+			</lightning:layoutItem>
+		</lightning:layout>
+	</aura:if> 
+    <!-- NOTIFY BUTTON -->
+	<!-- COMPONENT BODY -->
+</aura:component>

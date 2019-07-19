@@ -1,0 +1,7 @@
+<design:component label="Distributed Users" >
+    <design:attribute name="showCustomMessage" label="Add Custom Message" default="{!false}" description="If true, it lets the user to enter custom message when sending the email." />
+	<design:attribute name="fieldSetName" label="Field Set" required="true" description="Name of the fieldset contains list of fields to be displayed as columns in the table." />
+    <sfdc:objects >
+        <sfdc:object >grc__Policy__c</sfdc:object>
+    </sfdc:objects>
+</design:component>

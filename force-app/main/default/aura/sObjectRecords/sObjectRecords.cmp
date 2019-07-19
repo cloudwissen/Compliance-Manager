@@ -1,0 +1,19 @@
+<aura:component >
+	
+	<!-- ATTRIBUTES -->
+    <aura:attribute name="recordsMap" type="Map" description="Map contains list of sobject records for each sobject type." />
+    <aura:attribute name="sObjectInfo" type="Object" description="sObject Information" />
+    <!-- ATTRIBUTES -->
+
+    <!-- INTERNAL ATTRIBUTES -->
+    <aura:attribute name="_recordsList" type="List" description="List of records." access="private" />
+    <!-- INTERNAL ATTRIBUTES -->
+
+    <!-- AURA HANDLERS -->
+    <aura:handler name="change" value="{!v.recordsMap}" action="{!c.getRecords}" />
+    <!-- AURA HANDLERS -->
+
+    <!-- COMPONENT BODY -->
+    <XLC:recordTileList sObjectInfo="{#v.sObjectInfo}" recordsList="{!v._recordsList}" actions="[{'label':'Delete','name':'delete','iconName':'utility:close'}]" />
+    <!-- COMPONENT BODY -->
+</aura:component>

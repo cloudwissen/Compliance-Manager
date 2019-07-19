@@ -1,0 +1,24 @@
+.THIS .viewAllLabel{
+    color: rgb(0, 112, 210);
+    cursor: pointer;
+}
+
+.THIS .viewAllLabel:hover{
+    text-decoration: underline;
+}
+
+.THIS.myPoliciesCard .slds-card__footer{
+    border-top: none;
+    padding-top: 0;
+}
+
+
+/* Override styles to align with homepage component styles */
+.THIS > .slds-card__header .slds-button__icon--x-small{
+    width: .875rem;
+    height: .875rem;
+    line-height: 1;
+}
+.THIS > .slds-card__header .slds-m-left--xx-small{
+    margin-left: 0.5rem;
+}

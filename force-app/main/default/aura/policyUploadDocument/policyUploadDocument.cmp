@@ -1,0 +1,52 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="ViewContentDocument" access="global">
+
+    <!-- PRIVATE ATTRIBUTES -->
+    <aura:attribute name="_multiple" type="Boolean" access="private" default="{!false}" description="Specifies whether a user can upload more than one file simultanesouly."/>
+    <aura:attribute name="_disabled" type="Boolean" access="private" default="{!false}" description="Specifies whether this component should be displayed in a disabled state."/>
+    <aura:attribute name="_newPolicy" type="Map" access="private" description="New instance of the record"/>
+    <aura:attribute name="_simpleNewPolicy" type="Map" access="private" description="Target instance of the record"/>
+	<!-- PRIVATE ATTRIBUTES -->
+    
+    <!-- PRIVATE ATTRIBUTES SET IN CALLBACK WITHOUT DEFINED ACCESS-->    
+    <aura:attribute name="_isInvalidDocument" type="Boolean" default="{!false}" description="If the policy document Id is invalid,set it to true"/>
+    <aura:attribute name="_documentId" type="Id" description="Policy Document Id"/>
+    <aura:attribute name="_isCallBackCompleted" type="Boolean" default="{!false}" description="to check whether callBack completed or not"/>
+   <!-- PRIVATE ATTRIBUTES SET IN CALLBACK WITHOUT DEFINED ACCESS-->     
+
+    <!-- AURA HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- AURA HANDLERS -->
+
+    <!-- Lightning Data Service -->
+    <force:recordData aura:id="policyRecordCreator" recordId="{!v.recordId}" targetRecord="{!v._newPolicy}" targetFields="{!v._simpleNewPolicy}" fields="Id,XLComp__Content_Document_Id__c" mode="EDIT" />
+    <!-- Lightning Data Service -->
+
+    <!-- COMPONENT BODY -->
+    <aura:if isTrue="{!v._isCallBackCompleted}">
+        <lightning:card title="{!$Label.c.Policy_Document}">
+            <aura:if isTrue="{!empty(v._documentId)}">
+                <aura:if isTrue="{!v._isInvalidDocument}">
+                    <lightning:layout class="slds-p-around_small">
+                        <lightning:layoutItem class="slds-align_absolute-center">
+                            <lightning:icon iconName="utility:warning" alternativeText="{!$Label.c.Invalid_Content_Document_On_Policy}" variant="warning" size="x-small" class="slds-p-around_small" />
+                            <ui:outputText value="{!$Label.c.Invalid_Content_Document_On_Policy}"/>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </aura:if>
+                <lightning:layout >
+                    <lightning:layoutItem class="slds-align_absolute-center">
+                        <lightning:fileUpload name="fileUploader" label="{!$Label.c.Policy_Upload}" multiple="{!v._multiple}" disabled="{!v._disabled}" recordId="{!v.recordId}" onuploadfinished="{! c.handleUploadFinished }" />
+                    </lightning:layoutItem>
+                </lightning:layout>
+                <aura:set attribute="else">
+                    <lightning:layoutItem class="slds-align_absolute-center">
+                        <lightning:fileCard fileId="{!v._documentId}" />
+                    </lightning:layoutItem>
+                </aura:set>
+            </aura:if>
+        </lightning:card>
+
+    </aura:if>
+    <!-- COMPONENT BODY -->
+    
+</aura:component>

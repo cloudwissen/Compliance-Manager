@@ -1,0 +1,9 @@
+.THIS .invitedUsersTitle {
+    background-color:#EEF1F6;
+    font-size: 1rem;
+    color:#3E3E3C;
+}
+.THIS.invitedUsersCard .slds-card__footer{
+    border-top: none;
+    padding-top: 0;
+}

@@ -1,0 +1,5 @@
+<design:component label="Policy Upload" >
+    <sfdc:objects >
+        <sfdc:object >grc__Policy__c</sfdc:object>
+    </sfdc:objects>
+</design:component>

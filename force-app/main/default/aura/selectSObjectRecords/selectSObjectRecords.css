@@ -1,0 +1,7 @@
+.THIS.slds-box{
+    padding: .1rem;
+}
+.THIS .slds-badge{
+    line-height: unset;
+    font-size: 0.45rem;
+}

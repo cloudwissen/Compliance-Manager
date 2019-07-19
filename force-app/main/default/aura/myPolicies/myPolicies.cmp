@@ -1,0 +1,86 @@
+<aura:component controller="MyPoliciesController" implements="flexipage:availableForAllPageTypes" access="global">
+    
+    <!-- PUBLIC ATTRIBUTES -->
+    <aura:attribute name="mode" type="String" description="Mode toggles between read and unread policies." default="Read" access="global"/>
+    <aura:attribute name="limitValue" type="Integer" description="Number of records to be displayed." default="10" access="global"/>
+    <aura:attribute name="readPoliciesListView" type="String" description="Name of the list view to display read policies when user click on the view all link" access="global"/>
+    <aura:attribute name="unreadPoliciesListView" type="String" description="Name of the list view to display Unread policies when user click on the view all link" access="global"/>
+    <aura:attribute name="overlayPanel" type="Aura.Component[]" description="Instance of an overlay panel"  />
+    <!-- PUBLIC ATTRIBUTES -->
+
+    <!-- PRIVATE ATTRIBUTES -->
+    <aura:attribute name="_displayList" type="List" description="The array of data to be displayed from the original list." access="private" />
+    <aura:attribute name="_policiesMap" type="Map" description="Map of policies by mode Read/Unread." access="private" />
+    <aura:attribute name="_fieldLabel" type="String" description="Policy name field label." access="private" />
+    <aura:attribute name="_disableActions" type="Boolean" default="{!false}" description="Indicates if the actions should be disabled." access="private" />
+    <aura:attribute name="_errorMessage" type="String" description="Error messages." access="private"/>
+    <!-- PRIVATE ATTRIBUTES -->
+
+    <!-- AURA HANDLERS --> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- AURA HANDLERS -->
+
+    <!-- COMPONENT BODY -->
+    <lightning:spinner aura:id="spinner" variant="brand" class="slds-hide" />
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    
+    <lightning:card class="{!not(empty(v._displayList)) ? 'myPoliciesCard' : ''}" >
+        <aura:set attribute="title">
+            <div class="slds-page-header__title slds-text-heading_small slds-truncate" >
+                <ui:outputText value="{!v.mode == 'Unread' ? $Label.c.My_Unread_Policies : $Label.c.My_Read_Policies}" />
+            </div>
+        </aura:set>
+        
+        <aura:set attribute="actions">
+            <lightning:buttonMenu iconName="utility:filter" variant="border" menuAlignment="right" alternativeText="{!$Label.c.Settings}" 
+                                  onselect="{!c.handleMenuSelect}" disabled="{!v._disableActions}">
+                <lightning:menuItem value="Unread" label="{!$Label.c.Unread}" checked="{!equals(v.mode,'Unread')}" />
+                <lightning:menuItem value="Read" label="{!$Label.c.Read}" checked="{!equals(v.mode,'Read')}" />
+            </lightning:buttonMenu>
+        </aura:set>
+        
+        <!-- DATATABLE -->
+        <aura:if isTrue="{!not(empty(v._displayList))}" >
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr class="slds-text-title_caps" >
+                        <th scope="col" >{!v._fieldLabel}</th>
+                        <th scope="col" >{!$Label.c.Action}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v._displayList}" var="policy" >
+                        <tr>
+                            <td>
+                                <ui:outputText value="{!policy.XLComp__Policy_Version__r.XLComp__Policy__r.Name}" />
+                            </td>
+                            <td > 
+                                <lightning:buttonIcon iconName="utility:file" class="{!v.mode == 'Read' ? 'slds-p-left_small' : ''}" variant="bare" alternativeText="{!$Label.c.Open_File}" size="medium" value="{!policy.XLComp__Policy_Version__r.XLComp__Policy__c}" onclick="{!c.openFile}" />
+                                <aura:if isTrue="{!v.mode == 'Unread'}" >
+                                    <lightning:buttonIcon iconName="utility:check" variant="bare" alternativeText="{!$Label.c.Update_Policy_As_Read}" size="medium" value="{!policy.Id}" onclick="{!c.getConfirmation}" class="slds-p-left_small" name="{!policy.XLComp__Policy_Version__r.XLComp__Policy__r.Name}" />
+                                </aura:if>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <aura:set attribute="else" >
+                <div class="slds-text-align_center">{!$Label.XLC.No_Items_To_Display}</div>
+            </aura:set>
+        </aura:if>
+        <XLC:scopedNotification message="{!v._errorMessage}" variant="error"/>
+
+        <!-- DATATABLE -->
+        <aura:set attribute="footer">
+            <aura:if isTrue="{!not(v._disableActions)}" >
+                <aura:if isTrue="{!not(empty(v.mode == 'Unread' ? v.unreadPoliciesListView : v.readPoliciesListView))}" >
+                    <div class="slds-text-align_center" >
+                        <ui:outputText class="viewAllLabel" click="{!c.handleViewAll}" value="{!$Label.c.View_All}" />
+                    </div>
+                </aura:if>
+            </aura:if>
+        </aura:set>
+        
+    </lightning:card>
+    <!-- COMPONENT BODY -->
+</aura:component>
